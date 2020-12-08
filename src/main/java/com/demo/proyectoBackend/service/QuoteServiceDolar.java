@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Service
-public class QuoteDolar implements QuoteService{
+public class QuoteServiceDolar implements QuoteService{
 
 	@Autowired
 	RestTemplate restTemplate;
