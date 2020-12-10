@@ -5,15 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.demo.proyectoBackend.exception.ResourceNotFoundException;
 import com.demo.proyectoBackend.model.User;
 import com.demo.proyectoBackend.repository.UserRepository;
 
 @Service
-@Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImplementation implements UserService{
 	@Autowired
 	private UserRepository userRepository;
 	
