@@ -1,7 +1,5 @@
 package com.demo.proyectoBackend.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.proyectoBackend.model.BancoProvinciaResponse;
 import com.demo.proyectoBackend.service.QuoteServiceDolar;
 
 @RestController
@@ -19,8 +18,13 @@ public class QuoteController {
 	private QuoteServiceDolar quoteDolar;
 	
 	@GetMapping("/dolar")
-	public ResponseEntity<List<String>> getQuoteDolar() {
-		return ResponseEntity.ok().body(quoteDolar.getQuote());
+	public ResponseEntity<BancoProvinciaResponse> getQuoteDolar() {
+				  
+		BancoProvinciaResponse response = BancoProvinciaResponse.builder()
+				.respuesta(quoteDolar.getQuote())
+				.build();
+				  		  
+		return ResponseEntity.ok().body(response);
 	}
 	
 	@GetMapping("/pesos")
