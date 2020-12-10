@@ -32,8 +32,6 @@ public class UserServiceImplementation implements UserService{
 			userUpdate.setEmail(user.getEmail());
 			userUpdate.setPassword(user.getPassword());
 			
-			
-			
 			return userUpdate;
 		} else {
 			throw new ResourceNotFoundException("Record not found with id : " + user.getId());

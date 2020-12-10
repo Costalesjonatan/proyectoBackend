@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.demo.proyectoBackend.service.QuoteService;
+import com.demo.proyectoBackend.service.QuoteServiceDolar;
 
 @RestController
 @RequestMapping("/cotizacion")
 public class QuoteController {
 
 	@Autowired
-	private QuoteService quoteDolar;
+	private QuoteServiceDolar quoteDolar;
 	
 	@GetMapping("/dolar")
 	public ResponseEntity<String> getQuoteDolar() {
