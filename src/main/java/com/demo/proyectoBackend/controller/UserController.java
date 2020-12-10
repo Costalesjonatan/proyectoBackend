@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.proyectoBackend.model.User;
-import com.demo.proyectoBackend.service.UserService;
+import com.demo.proyectoBackend.service.UserServiceImplementation;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 	
 	@Autowired
-	private UserService userService;
+	private UserServiceImplementation userService;
 	
 	@GetMapping
 	public ResponseEntity<List<User>> getAllUser() {

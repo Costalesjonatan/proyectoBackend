@@ -6,13 +6,14 @@ import com.demo.proyectoBackend.model.User;
 
 public interface UserService {
 
-	public User createUser(User user);
+	User createUser(User user);
 	
-	public User updateUser(User user);
+	User updateUser(User user);
 	
-	public List<User> getAllUser();	
+	List<User> getAllUser();	
 	
-	public User getUserById(int userId);
+	User getUserById(long userId);
 	
-	public void deleteUser(int userId);
+	void deleteUser(long userId);
+
 }

@@ -23,7 +23,7 @@ public class UserServiceImplementation implements UserService{
 	@Override
 	public User updateUser(User user) {
 		
-		Optional<User> userDb = this.userRepository.findById(user.getId());
+		Optional<User> userDb = userRepository.findById(user.getId());
 		
 		if(userDb.isPresent()) {
 			User userUpdate = userDb.get();
@@ -31,6 +31,8 @@ public class UserServiceImplementation implements UserService{
 			userUpdate.setApellido(user.getApellido());
 			userUpdate.setEmail(user.getEmail());
 			userUpdate.setPassword(user.getPassword());
+			
+			
 			
 			return userUpdate;
 		} else {
@@ -44,7 +46,7 @@ public class UserServiceImplementation implements UserService{
 	}
 
 	@Override
-	public User getUserById(int userId) {
+	public User getUserById(long userId) {
 		Optional<User> userDb = this.userRepository.findById(userId);
 		
 		if(userDb.isPresent()){
@@ -55,7 +57,7 @@ public class UserServiceImplementation implements UserService{
 	}
 
 	@Override
-	public void deleteUser(int userId) {
+	public void deleteUser(long userId) {
 		Optional<User> userDb = this.userRepository.findById(userId);
 		
 		if(userDb.isPresent()){
