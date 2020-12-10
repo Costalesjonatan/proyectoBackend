@@ -24,10 +24,9 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private long id;
-	
 	@Column(name = "nombre")
 	private String nombre;
-	@Column(name = "apellido")
+	@Column(name = "apellido", nullable = false)
 	private String apellido;
 	@Column(name = "email")
 	private String email;
