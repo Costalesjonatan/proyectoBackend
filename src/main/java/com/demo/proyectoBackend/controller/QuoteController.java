@@ -1,5 +1,7 @@
 package com.demo.proyectoBackend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ public class QuoteController {
 	private QuoteServiceDolar quoteDolar;
 	
 	@GetMapping("/dolar")
-	public ResponseEntity<String> getQuoteDolar() {
+	public ResponseEntity<List<String>> getQuoteDolar() {
 		return ResponseEntity.ok().body(quoteDolar.getQuote());
 	}
 	

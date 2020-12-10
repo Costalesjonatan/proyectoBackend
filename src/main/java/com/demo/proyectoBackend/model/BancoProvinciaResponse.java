@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BancoProvinciaRepsonse {
+public class BancoProvinciaResponse {
 	
 	private List<String> respuesta;
 }
