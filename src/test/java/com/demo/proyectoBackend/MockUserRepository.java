@@ -17,6 +17,11 @@ public class MockUserRepository implements UserRepository {
 	private HashMap<Long, User> users = new HashMap<Long, User>();
 
 	@Override
+	public Optional<User> findById(Long id) {
+		return Optional.ofNullable(users.get(id));
+	}
+	
+	@Override
 	public List<User> findAll() {
 		// TODO Auto-generated method stub
 		return null;
@@ -94,11 +99,6 @@ public class MockUserRepository implements UserRepository {
 		users.put(entity.getId(), entity);
 		
 		return null;
-	}
-
-	@Override
-	public Optional<User> findById(Long id) {
-		return Optional.ofNullable(users.get(id));
 	}
 
 	@Override
