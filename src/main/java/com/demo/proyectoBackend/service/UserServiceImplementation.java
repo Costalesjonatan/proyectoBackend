@@ -10,8 +10,14 @@ import com.demo.proyectoBackend.exception.ResourceNotFoundException;
 import com.demo.proyectoBackend.model.User;
 import com.demo.proyectoBackend.repository.UserRepository;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserServiceImplementation implements UserService{
+	
 	@Autowired
 	private UserRepository userRepository;
 	
