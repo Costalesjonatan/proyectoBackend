@@ -22,14 +22,14 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id", nullable = false)
 	private long id;
-	@Column(name = "nombre")
+	@Column(name = "name", nullable = false)
 	private String nombre;
-	@Column(name = "apellido", nullable = false)
+	@Column(name = "lastName", nullable = false)
 	private String apellido;
-	@Column(name = "email")
+	@Column(name = "email", nullable = false)
 	private String email;
-	@Column(name = "password")
+	@Column(name = "password",nullable = false)
 	private String password;	
 }

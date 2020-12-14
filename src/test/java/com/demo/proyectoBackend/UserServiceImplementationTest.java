@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import com.demo.proyectoBackend.exception.InvalidDataException;
 import com.demo.proyectoBackend.exception.ResourceNotFoundException;
 import com.demo.proyectoBackend.model.User;
 import com.demo.proyectoBackend.repository.UserRepository;
@@ -30,11 +31,30 @@ class UserServiceImplementationTest {
 				.apellido("Costales")
 				.nombre("Aaron")
 				.email("emailTest@gmail.com")
-				.password("1234")
+				.password("12345678")
 				.build());
 		
 		assertThat(userRepository.findById((long) 1)).isNotNull();
 	}
+	
+	@Test
+	void shouldNotCreateUserBecauseInvalidName() {
+		
+		givenUserRepository();
+		givenUserService();
+		
+		Assertions.assertThrows(InvalidDataException.class, () -> {
+			userService.updateUser(User.builder()
+					.id(1)
+					.apellido("Costales")
+					.nombre("Aa")
+					.email("emailTest@gmail.com")
+					.password("87654321")
+						.build());
+	  });
+	}
+	
+	
 		
 	@Test
 	void shouldNotUpdateUser(){
@@ -48,7 +68,7 @@ class UserServiceImplementationTest {
 						.apellido("Costales")
 						.nombre("Aaron")
 						.email("emailTest@gmail.com")
-						.password("1234")
+						.password("12345678")
 							.build());
 		  });
 	}
@@ -64,7 +84,7 @@ class UserServiceImplementationTest {
 				.apellido("Costales")
 				.nombre("Aaron")
 				.email("emailTest@gmail.com")
-				.password("1234")
+				.password("12345678")
 				.build());
 		
 		userService.updateUser(User.builder()
@@ -72,13 +92,13 @@ class UserServiceImplementationTest {
 				.apellido("Costales")
 				.nombre("Aaron")
 				.email("newEmailTest@gmail.com")
-				.password("5678")
+				.password("56789101")
 				.build());
 		
 		Optional<User> userUpdated = userRepository.findById((long) 1);
 		User user = userUpdated.get();
 		
-		assertTrue(user.getEmail().equals("newEmailTest@gmail.com") && user.getPassword().equals("5678"));
+		assertTrue(user.getEmail().equals("newEmailTest@gmail.com") && user.getPassword().equals("56789101"));
 	}
 
 	private void givenUserRepository() {
