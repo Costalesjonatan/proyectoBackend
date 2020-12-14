@@ -70,6 +70,23 @@ class UserServiceImplementationTest {
 					.build());
 	  });
 	}
+	
+	@Test
+	void shouldNotCreateUserBecauseInvalidEmail() {
+		
+		givenUserRepository();
+		givenUserService();
+		
+		Assertions.assertThrows(InvalidDataException.class, () -> {
+			userService.createUser(User.builder()
+					.id(1)
+					.apellido("Costales")
+					.nombre("Aaron")
+					.email("emailTestgmail.com")
+					.password("12345678")
+					.build());
+	  });
+	}
 		
 	@Test
 	void shouldNotUpdateUser(){
