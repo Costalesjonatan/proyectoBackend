@@ -44,17 +44,32 @@ class UserServiceImplementationTest {
 		givenUserService();
 		
 		Assertions.assertThrows(InvalidDataException.class, () -> {
-			userService.updateUser(User.builder()
+			userService.createUser(User.builder()
 					.id(1)
 					.apellido("Costales")
 					.nombre("Aa")
 					.email("emailTest@gmail.com")
-					.password("87654321")
-						.build());
+					.password("12345678")
+					.build());
 	  });
 	}
 	
-	
+	@Test
+	void shouldNotCreateUserBecauseInvalidLastName() {
+		
+		givenUserRepository();
+		givenUserService();
+		
+		Assertions.assertThrows(InvalidDataException.class, () -> {
+			userService.createUser(User.builder()
+					.id(1)
+					.apellido("Co")
+					.nombre("Aaron")
+					.email("emailTest@gmail.com")
+					.password("12345678")
+					.build());
+	  });
+	}
 		
 	@Test
 	void shouldNotUpdateUser(){
