@@ -35,7 +35,7 @@ class UserServiceImplementationTest {
 		
 		assertThat(userRepository.findById((long) 1)).isNotNull();
 	}
-	
+		
 	@Test
 	void shouldNotUpdateUser(){
 		
