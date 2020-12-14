@@ -87,6 +87,23 @@ class UserServiceImplementationTest {
 					.build());
 	  });
 	}
+	
+	@Test
+	void shouldNotCreateUserBecauseInvalidPassword() {
+		
+		givenUserRepository();
+		givenUserService();
+		
+		Assertions.assertThrows(InvalidDataException.class, () -> {
+			userService.createUser(User.builder()
+					.id(1)
+					.apellido("Costales")
+					.nombre("Aaron")
+					.email("emailTestgmail.com")
+					.password("1234")
+					.build());
+	  });
+	}
 		
 	@Test
 	void shouldNotUpdateUser(){
